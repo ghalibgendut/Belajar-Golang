@@ -15,13 +15,13 @@ func main() {
 		fmt.Println("Perulangan i ke : ", i)
 	}
 
-	nameSlice := []string{"Kazuma", "Kiryu", "Goro", "Mijima", "Ghalib", "Sasmito"}
+	sliceName := []string{"Kazuma", "Kiryu", "Goro", "Mijima", "Ghalib", "Sasmito"}
 
-	for i := 0; i < len(nameSlice); i++ {
-		fmt.Println(nameSlice[i])
+	for i := 0; i < len(sliceName); i++ {
+		fmt.Println(sliceName[i])
 	}
 
-	for i, value := range nameSlice {
+	for i, value := range sliceName {
 		fmt.Println("Name index : ", i, " Value : ", value)
 	}
 
