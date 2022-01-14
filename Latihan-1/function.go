@@ -15,15 +15,15 @@ func helloUser(firstName string, lastName string) {
 }
 
 func main() {
-	// for i := 0; i < 5; i++ {
-	// 	helloFunction()
+	for i := 0; i < 5; i++ {
+		helloFunction()
 
-	// 	if i < 3 {
-	// 		continue
-	// 	}
+		if i < 3 {
+			continue
+		}
 
-	// 	helloFunc()
-	// }
+		helloFunc()
+	}
 
 	firstName := "Ujang"
 	lastName := "Jajang"
