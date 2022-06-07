@@ -99,6 +99,16 @@ func main() {
 	total := variadic(10, 11, 10, 40)
 	fmt.Println(total)
 
+	/*
+		dalam variadic function dapat mengirim
+		parameter kosong atau lebih dari 1 parameter,
+		tipe variadic dalam sebuah function harus di deklarasi paling belakang dalam
+		sebuah function, yang biasanya ditandai dengan ... (titik tiga didepan tipe data)
+		contoh : func a (name string, age ...int) {} titik tiga setelah variable "i"
+		menunjukan kalau i merupakan sebuah varargs atau variable argumens yang dapat diisi lebih dari 1 value
+		contoh pemanggilan func a adalah a("budi", 10,11,12,13)
+	*/
+
 	slice := []int{10, 20, 11, 15, 30}
 	total = variadic(slice...)
 	fmt.Println(total)
