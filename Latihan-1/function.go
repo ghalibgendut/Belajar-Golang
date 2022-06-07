@@ -30,8 +30,16 @@ func getFullName() (firstName string, lastName string, age int8) {
 	firstName = "Kiryu"
 	lastName = "Kazuma"
 	age = 22
-
 	return
+}
+
+func variadic(numbers ...int) (total int) {
+	total = 0
+
+	for _, number := range numbers {
+		total += number
+	}
+	return total
 }
 
 func main() {
@@ -74,4 +82,7 @@ func main() {
 	fmt.Println(a)
 	fmt.Println(b)
 	// fmt.Println(c)
+
+	total := variadic(10, 11, 10, 40)
+	fmt.Println(total)
 }
