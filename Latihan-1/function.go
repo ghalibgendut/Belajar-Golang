@@ -26,6 +26,14 @@ func getReturnMultipleVal() (string, string, int8) {
 	return "Kiryu", "Kazuma", 22
 }
 
+func getFullName() (firstName string, lastName string, age int8) {
+	firstName = "Kiryu"
+	lastName = "Kazuma"
+	age = 22
+
+	return
+}
+
 func main() {
 	for i := 0; i < 5; i++ {
 		helloFunction()
@@ -61,4 +69,9 @@ func main() {
 
 	depan, _, umur := getReturnMultipleVal()
 	fmt.Println(depan, umur)
+
+	a, b, _ := getFullName()
+	fmt.Println(a)
+	fmt.Println(b)
+	// fmt.Println(c)
 }
