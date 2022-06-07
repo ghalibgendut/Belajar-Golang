@@ -22,6 +22,10 @@ func returnVal(name string) string {
 	}
 }
 
+func getReturnMultipleVal() (string, string, int8) {
+	return "Kiryu", "Kazuma", 22
+}
+
 func main() {
 	for i := 0; i < 5; i++ {
 		helloFunction()
@@ -43,4 +47,18 @@ func main() {
 
 	fmt.Println(returnVal(""))
 
+	// pengembalian multiple function dengan semua value ditangkap
+	first, last, age := getReturnMultipleVal()
+	fmt.Println(first, last, age)
+
+	/*
+		semua return value dalam function yg
+		mengembalikan multiple value harus di tangkap semua
+		apa bila hanya ingin mengebalikan sebagian harus di tandai dengan "_"
+	*/
+
+	// pengembalian function dengan sebagian value ditangkap
+
+	depan, _, umur := getReturnMultipleVal()
+	fmt.Println(depan, umur)
 }
