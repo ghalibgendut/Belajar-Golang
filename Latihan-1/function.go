@@ -51,6 +51,10 @@ func variadicExp(i ...interface{}) {
 	}
 }
 
+func functionAsValue(name string) string {
+	return "Goodbye " + name
+}
+
 func main() {
 	for i := 0; i < 5; i++ {
 		helloFunction()
@@ -95,6 +99,14 @@ func main() {
 	total := variadic(10, 11, 10, 40)
 	fmt.Println(total)
 
+	slice := []int{10, 20, 11, 15, 30}
+	total = variadic(slice...)
+	fmt.Println(total)
+
 	variadicExp(1, "exp", true, 10.5, []string{"tes", "obj"},
 		map[string]int{"apple": 23, "orange": 10})
+
+	goodBye := functionAsValue
+
+	fmt.Println(goodBye("Kiryu"))
 }
