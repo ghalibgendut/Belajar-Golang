@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 func helloFunction() {
 	fmt.Println("Hello this is a Function before a continue operation!")
@@ -33,13 +36,19 @@ func getFullName() (firstName string, lastName string, age int8) {
 	return
 }
 
-func variadic(numbers ...int) (total int) {
-	total = 0
+func variadic(numbers ...int) int {
+	total := 0
 
 	for _, number := range numbers {
 		total += number
 	}
 	return total
+}
+
+func variadicExp(i ...interface{}) {
+	for _, v := range i {
+		fmt.Println(v, "--", reflect.ValueOf(v).Kind())
+	}
 }
 
 func main() {
@@ -85,4 +94,7 @@ func main() {
 
 	total := variadic(10, 11, 10, 40)
 	fmt.Println(total)
+
+	variadicExp(1, "exp", true, 10.5, []string{"tes", "obj"},
+		map[string]int{"apple": 23, "orange": 10})
 }
