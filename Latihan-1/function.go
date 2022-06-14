@@ -5,6 +5,46 @@ import (
 	"reflect"
 )
 
+/*
+	Anonymous function
+*/
+
+type BlackList func(string) bool
+
+func registerUser(name string, blackList BlackList) {
+	if blackList(name) {
+		fmt.Println("You are blocked by the system")
+	} else {
+		fmt.Println("Welcome", name)
+	}
+}
+
+/*
+	function dapat dijadikan parameter di function lain
+	formatnya adalah sebagai berikut
+
+	func namaFunction (parameter tipeData, namaFunctionParameter (tipeData), tipeData) {}
+
+	function sebagai parameter juga bisa diubah menjadi Type Declaration sebagai contoh dibawah helloWithFilter
+*/
+
+type filteredData func(string) string
+
+func helloWithFilter(name string, filter filteredData) {
+	nameFiltered := filter(name)
+	fmt.Println(nameFiltered)
+
+}
+
+func nameFilter(name string) string {
+	if name == "Anjing" || name == "Babi" {
+		return "..."
+	} else {
+		return name
+	}
+
+}
+
 func helloFunction() {
 	fmt.Println("Hello this is a Function before a continue operation!")
 }
@@ -53,6 +93,25 @@ func variadicExp(i ...interface{}) {
 
 func functionAsValue(name string) string {
 	return "Goodbye " + name
+}
+
+// normal loop factorial
+func loopFactorial(val int) int {
+	result := 1
+
+	for i := val; i > 0; i-- {
+		result *= i
+	}
+	return result
+}
+
+// vs using recrusive function
+func factorialRecrusive(val int) int {
+	if val == 1 {
+		return 1
+	} else {
+		return val * factorialRecrusive(val-1)
+	}
 }
 
 func main() {
@@ -119,4 +178,22 @@ func main() {
 	goodBye := functionAsValue
 
 	fmt.Println(goodBye("Kiryu"))
+
+	// function sebagai parameter
+	helloWithFilter("Kiryu", nameFilter)
+	helloWithFilter("Anjing", nameFilter)
+	helloWithFilter("Babi", nameFilter)
+
+	blacklist := func(name string) bool {
+		return name == "Kazama"
+	}
+
+	registerUser("Kazama", blacklist)
+	registerUser("Kiryu", blacklist)
+
+	loop := loopFactorial
+	loopRecrusive := factorialRecrusive
+	fmt.Println(loop(10))
+	fmt.Println(loopRecrusive(10))
+
 }
